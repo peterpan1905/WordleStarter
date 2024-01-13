@@ -32,6 +32,7 @@ def wordle():
 
         col += 1
 
+
 # Startup code
 
 if __name__ == "__main__":
