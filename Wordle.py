@@ -11,27 +11,16 @@ from WordleDictionary import FIVE_LETTER_WORDS
 from WordleGraphics import WordleGWindow, N_COLS, N_ROWS
 
 def wordle():
-    # Choose random word from FIVE_LETTER_WORDS list as the solution
-    key_word = random.choice(FIVE_LETTER_WORDS).upper()
 
     def enter_action(s):
-        gw.show_message("You have to implement this method.")
+        # Check if the word is in the list of valid English words
+        if s.lower() in FIVE_LETTER_WORDS:
+            gw.show_message("I got this milestone working, woo!")
+        else:
+            gw.show_message("Not in word list")
 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
-
-    # Set row and column starting index values to 0
-    row = 0
-    col = 0
-
-    # Loop through each letter in the key_word and put it in it's proper row and column
-    for ch_position in range(len(key_word)):
-        ch = key_word[ch_position]
-
-        gw.set_square_letter(row, col, ch)
-
-        col += 1
-
 
 # Startup code
 
