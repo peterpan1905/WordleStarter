@@ -9,7 +9,9 @@ import atexit
 import math
 import time
 import tkinter
+import keyboard
 
+from WordleDictionary import FIVE_LETTER_WORDS
 # Constants
 
 N_ROWS = 6			# Number of rows
@@ -100,17 +102,16 @@ class WordleGWindow:
                 ch = tke.upper()
             else:
                 ch = tke.char.upper()
-            if ch == "\007" or ch == "\177" or ch == "DELETE":
+            if ch == "\007" or ch == "\177" or ch == "DELETE" or keyboard.is_pressed("backspace"):
                 self.show_message("")
                 if self._row < N_ROWS and self._col > 0:
                     self._col -= 1
                     sq = self._grid[self._row][self._col]
                     sq.set_letter(" ")
-            elif ch == "\r" or ch == "\n" or ch == "ENTER":
-                self.show_message("")
+            elif ch == "\r" or ch == "\n" or ch == "ENTER" or keyboard.is_pressed("enter"):
                 s = ""
                 for col in range(N_COLS):
-                    s += self._grid[self._row][col].get_letter();
+                    s += self._grid[self._row][col].get_letter()
                 for fn in self._enter_listeners:
                     fn(s)
             elif ch.isalpha():
