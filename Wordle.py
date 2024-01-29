@@ -80,8 +80,8 @@ def wordle():
             if current_row == N_ROWS-1:
                 gw.show_message("Game Over! The word was " + key_word)
             else:
-                gw.set_current_row(current_row + 1)
                 gw.show_message("Try another guess")
+        gw.set_current_row(current_row + 1)
                 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
