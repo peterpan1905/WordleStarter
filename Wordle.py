@@ -1,4 +1,5 @@
 
+
 # File: Wordle.py
 
 """
@@ -12,6 +13,9 @@ from WordleDictionary import FIVE_LETTER_WORDS
 from WordleGraphics import WordleGWindow, N_COLS, N_ROWS, CORRECT_COLOR, PRESENT_COLOR, MISSING_COLOR
 
 def wordle():
+
+    # Choose a random word from the list as the solution
+    key_word = random.choice(FIVE_LETTER_WORDS).upper()
 
     # Choose a random word from the list as the solution
     key_word = random.choice(FIVE_LETTER_WORDS).upper()
