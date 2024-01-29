@@ -10,6 +10,7 @@ import math
 import time
 import tkinter
 import keyboard
+import platform
 
 from WordleDictionary import FIVE_LETTER_WORDS
 # Constants
@@ -102,6 +103,11 @@ class WordleGWindow:
                 ch = tke.upper()
             else:
                 ch = tke.char.upper()
+                if tke.keysym == "Return":
+                    ch = "ENTER"
+                elif tke.keysym == "BackSpace":
+                    ch = "DELETE"
+
             if ch == "\007" or ch == "\177" or ch == "DELETE" or keyboard.is_pressed("backspace"):
                 self.show_message("")
                 if self._row < N_ROWS and self._col > 0:
